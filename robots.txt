@@ -1,0 +1,12 @@
+# QuickLaunch Consulting — robots.txt
+# https://quicklaunchconsulting.com
+
+User-agent: *
+Allow: /
+
+# Block any accidental staging or mirror paths
+Disallow: /mirror/
+Disallow: /assets/images/og-image.jpg
+
+# Sitemap location
+Sitemap: https://quicklaunchconsulting.com/sitemap.xml
