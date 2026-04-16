@@ -1,4 +1,31 @@
 ================================================================
+
+================================================================
+REPLACEMENT HERO IMAGE - CANVA BRIEF
+================================================================
+Filename:       hero-architecture-canva.jpg
+Dimensions:     1600 x 1600 px
+Style:          Premium editorial systems map / cinematic blueprint
+Use Case:       Homepage above-the-fold replacement hero image
+
+PROMPT:
+Create a high-end editorial hero image for an AI-powered startup consulting brand.
+Show a dark navy, premium "operating system" visual instead of a person:
+layered translucent panels, signal lines, strategic pathways, nodes, decision maps,
+subtle grid structure, motion implied through light trails, and a calm but powerful
+feeling of order emerging from complexity. Composition should feel like business
+architecture becoming clear. Use deep navy, electric blue, cyan, and restrained orange
+accents. No people. No laptops. No dashboards with tiny unreadable UI. No stock-photo
+look. No embedded text. Keep one dominant composition with clean negative space so
+website copy can sit beside it. The image should feel premium, intelligent, decisive,
+and trust-building for founders under pressure.
+
+ART DIRECTION:
+- Mood: decisive, strategic, elegant, grounded
+- Visual metaphor: chaos resolving into structure
+- Contrast: strong enough to feel arresting above the fold
+- Avoid: cheesy AI brains, robots, hologram overload, generic SaaS cards
+- Export: JPG, high quality, optimized for web
 QUICKLAUNCH CONSULTING — CANVA MAGIC MEDIA PROMPTS
 ================================================================
 Instructions: In Canva, use "Magic Media" (AI image generator).
