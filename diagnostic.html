@@ -72,14 +72,31 @@
       mask-image: radial-gradient(ellipse 100% 80% at 50% 50%, black 0%, transparent 70%);
     }
     .diag-layout {
-      display: grid; grid-template-columns: 1fr;
-      gap: var(--sp-12); align-items: start;
-    }
-    @media (min-width: 1024px) {
-      .diag-layout { grid-template-columns: minmax(0, 1.2fr) minmax(340px, 420px); }
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-10);
+      max-width: 980px;
+      margin: 0 auto;
     }
     .diag-form-sticky {
-      position: sticky; top: 100px;
+      position: relative;
+      top: auto;
+      order: 1;
+      width: 100%;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .diag-explainer {
+      order: 2;
+      display: none;
+    }
+    .diag-explainer.is-revealed {
+      display: block;
+      animation: diag-reveal 0.45s ease-out;
+    }
+    @keyframes diag-reveal {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     .diag-form-card {
       background: var(--glass);
@@ -223,6 +240,28 @@
       font-size: var(--text-sm);
       line-height: 1.7;
       margin-bottom: var(--sp-6);
+    }
+    .quiz-sequence {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--sp-3);
+      margin-bottom: var(--sp-5);
+    }
+    .quiz-step {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--sp-2);
+      padding: var(--sp-2) var(--sp-4);
+      border-radius: var(--r-pill);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      font-size: var(--text-xs);
+      color: var(--muted-2);
+      font-weight: 700;
+    }
+    .quiz-step strong {
+      color: var(--white);
+      font-weight: 800;
     }
     .quiz-stack {
       display: flex;
@@ -450,21 +489,134 @@
   </div>
 </section>
 
-<!-- MAIN CONTENT + FORM -->
+<!-- QUIZ FIRST, EXPLANATION AFTER -->
 <section class="section section--dark" id="patterns" aria-labelledby="patterns-heading">
   <div class="container">
     <div class="diag-layout">
 
+      <!-- QUIZ -->
+      <div class="diag-form-sticky reveal-right" id="quiz">
+        <div class="quiz-card">
+          <div class="quiz-kicker">3-Minute Self-Assessment</div>
+          <h2 style="font-size:var(--text-4xl);font-weight:900;margin-bottom:var(--sp-3)" id="patterns-heading">
+            Take the Diagnostic First
+          </h2>
+          <p class="quiz-intro">
+            Start with the self-assessment. Once you score the project, the full collapse-pattern map unlocks below so the explanation matches the moment.
+          </p>
+          <div class="quiz-sequence">
+            <div class="quiz-step"><strong>1.</strong> Score the project</div>
+            <div class="quiz-step"><strong>2.</strong> See the active patterns</div>
+            <div class="quiz-step"><strong>3.</strong> Choose the next move</div>
+          </div>
+
+          <form id="diagnostic-quiz" aria-label="QuickLaunch diagnostic quiz">
+            <div class="quiz-stack">
+              <div class="quiz-question">
+                <div class="quiz-question-title">1. Governance Shadow</div>
+                <p class="quiz-question-sub">Important decisions still bottleneck through one person, even when a formal structure exists.</p>
+                <div class="quiz-options">
+                  <label><input type="radio" name="governance_shadow" value="yes" required><span>Yes, clearly active</span></label>
+                  <label><input type="radio" name="governance_shadow" value="somewhat"><span>Somewhat / sometimes</span></label>
+                  <label><input type="radio" name="governance_shadow" value="no"><span>No, not really</span></label>
+                </div>
+              </div>
+
+              <div class="quiz-question">
+                <div class="quiz-question-title">2. Vision Drift</div>
+                <p class="quiz-question-sub">People close to the project would describe the mission or current priorities in conflicting ways.</p>
+                <div class="quiz-options">
+                  <label><input type="radio" name="vision_drift" value="yes" required><span>Yes, clearly active</span></label>
+                  <label><input type="radio" name="vision_drift" value="somewhat"><span>Somewhat / sometimes</span></label>
+                  <label><input type="radio" name="vision_drift" value="no"><span>No, not really</span></label>
+                </div>
+              </div>
+
+              <div class="quiz-question">
+                <div class="quiz-question-title">3. Founder Bottleneck</div>
+                <p class="quiz-question-sub">The project still depends on one founder or leader to unblock progress, relationships, or execution.</p>
+                <div class="quiz-options">
+                  <label><input type="radio" name="founder_bottleneck" value="yes" required><span>Yes, clearly active</span></label>
+                  <label><input type="radio" name="founder_bottleneck" value="somewhat"><span>Somewhat / sometimes</span></label>
+                  <label><input type="radio" name="founder_bottleneck" value="no"><span>No, not really</span></label>
+                </div>
+              </div>
+
+              <div class="quiz-question">
+                <div class="quiz-question-title">4. Financial Fragility</div>
+                <p class="quiz-question-sub">One delayed payment, lost client, or surprise cost would create real instability for the business.</p>
+                <div class="quiz-options">
+                  <label><input type="radio" name="financial_fragility" value="yes" required><span>Yes, clearly active</span></label>
+                  <label><input type="radio" name="financial_fragility" value="somewhat"><span>Somewhat / sometimes</span></label>
+                  <label><input type="radio" name="financial_fragility" value="no"><span>No, not really</span></label>
+                </div>
+              </div>
+
+              <div class="quiz-question">
+                <div class="quiz-question-title">5. Scale Trap</div>
+                <p class="quiz-question-sub">The informal structure that got the project here now creates confusion, drag, or rework as things grow.</p>
+                <div class="quiz-options">
+                  <label><input type="radio" name="scale_trap" value="yes" required><span>Yes, clearly active</span></label>
+                  <label><input type="radio" name="scale_trap" value="somewhat"><span>Somewhat / sometimes</span></label>
+                  <label><input type="radio" name="scale_trap" value="no"><span>No, not really</span></label>
+                </div>
+              </div>
+
+              <div class="quiz-question">
+                <div class="quiz-question-title">6. Wrong-Fit Team</div>
+                <p class="quiz-question-sub">At least one key person is likely in the wrong seat, or the current team shape no longer matches this phase.</p>
+                <div class="quiz-options">
+                  <label><input type="radio" name="wrong_fit_team" value="yes" required><span>Yes, clearly active</span></label>
+                  <label><input type="radio" name="wrong_fit_team" value="somewhat"><span>Somewhat / sometimes</span></label>
+                  <label><input type="radio" name="wrong_fit_team" value="no"><span>No, not really</span></label>
+                </div>
+              </div>
+
+              <div class="quiz-question">
+                <div class="quiz-question-title">7. Conflict Avoidance</div>
+                <p class="quiz-question-sub">The real tensions are mostly handled through silence, side conversations, or slow withdrawal rather than direct resolution.</p>
+                <div class="quiz-options">
+                  <label><input type="radio" name="conflict_avoidance" value="yes" required><span>Yes, clearly active</span></label>
+                  <label><input type="radio" name="conflict_avoidance" value="somewhat"><span>Somewhat / sometimes</span></label>
+                  <label><input type="radio" name="conflict_avoidance" value="no"><span>No, not really</span></label>
+                </div>
+              </div>
+            </div>
+
+            <div class="quiz-meta">
+              <button type="submit" class="btn btn-primary btn-lg" style="width:100%">Show My Result</button>
+              <p>
+                This does not store answers. It gives visitors an immediate read on which structural patterns are most likely active, then points them toward the right next step.
+              </p>
+            </div>
+          </form>
+
+          <div class="quiz-result" id="quiz-result" aria-live="polite">
+            <div class="quiz-result-score" id="quiz-result-score">0 <span>active patterns</span></div>
+            <h3 id="quiz-result-level">Early Warning</h3>
+            <p id="quiz-result-copy">
+              You likely have one visible structural pressure point. Catch it now and you can repair it before it becomes a momentum killer.
+            </p>
+            <ul id="quiz-result-patterns">
+              <li>No clear dominant pattern flagged yet.</li>
+            </ul>
+            <div class="gap-cta">
+              <a href="the-path.html" class="btn btn-blue" id="quiz-result-cta">See the Full Path</a>
+              <a href="apply.html#fit-call" class="btn btn-secondary">Book a Fit Call</a>
+            </div>
+          </div>
+        </div>
+      </div><!-- /quiz -->
+
       <!-- LEFT: The 7 Patterns -->
-      <div>
+      <div class="diag-explainer" id="diagnostic-explainer" hidden>
         <div class="section-label reveal">The 7 Patterns</div>
-        <h2 class="section-h2 reveal reveal-delay-1" id="patterns-heading">
-          The Structural Patterns Behind<br>
-          <span class="text-gradient">Most Project Failures</span>
+        <h2 class="section-h2 reveal reveal-delay-1">
+          Your Score Unlocked the Pattern Map
         </h2>
         <p class="reveal reveal-delay-2" style="color:var(--muted);font-size:var(--text-lg);max-width:680px;margin-bottom:var(--sp-12);line-height:1.75">
-          These are not personality failures or character flaws. They are repeatable, nameable,
-          and fixable structural patterns. The first step to fixing them is seeing them clearly.
+          These are the structural patterns behind most founder stalls, team drag, and momentum loss.
+          Use the names below to interpret what your score is pointing at and decide what to repair first.
         </p>
 
         <div style="display:flex;flex-direction:column;gap:var(--sp-4)">
@@ -608,116 +760,6 @@
           </div>
         </div>
       </div><!-- /left column -->
-
-      <!-- RIGHT: Quiz -->
-      <div class="diag-form-sticky reveal-right" id="quiz">
-        <div class="quiz-card">
-          <div class="quiz-kicker">3-Minute Self-Assessment</div>
-          <h3 style="font-size:var(--text-3xl);font-weight:900;margin-bottom:var(--sp-3)">
-            Take the Diagnostic
-          </h3>
-          <p class="quiz-intro">
-            Answer each question based on your current reality, not your intended structure.
-            Count a pattern as active when the statement feels true often enough to slow momentum.
-          </p>
-
-          <form id="diagnostic-quiz" aria-label="QuickLaunch diagnostic quiz">
-            <div class="quiz-stack">
-              <div class="quiz-question">
-                <div class="quiz-question-title">1. Governance Shadow</div>
-                <p class="quiz-question-sub">Important decisions still bottleneck through one person, even when a formal structure exists.</p>
-                <div class="quiz-options">
-                  <label><input type="radio" name="governance_shadow" value="yes" required><span>Yes, clearly active</span></label>
-                  <label><input type="radio" name="governance_shadow" value="somewhat"><span>Somewhat / sometimes</span></label>
-                  <label><input type="radio" name="governance_shadow" value="no"><span>No, not really</span></label>
-                </div>
-              </div>
-
-              <div class="quiz-question">
-                <div class="quiz-question-title">2. Vision Drift</div>
-                <p class="quiz-question-sub">People close to the project would describe the mission or current priorities in conflicting ways.</p>
-                <div class="quiz-options">
-                  <label><input type="radio" name="vision_drift" value="yes" required><span>Yes, clearly active</span></label>
-                  <label><input type="radio" name="vision_drift" value="somewhat"><span>Somewhat / sometimes</span></label>
-                  <label><input type="radio" name="vision_drift" value="no"><span>No, not really</span></label>
-                </div>
-              </div>
-
-              <div class="quiz-question">
-                <div class="quiz-question-title">3. Founder Bottleneck</div>
-                <p class="quiz-question-sub">The project still depends on one founder or leader to unblock progress, relationships, or execution.</p>
-                <div class="quiz-options">
-                  <label><input type="radio" name="founder_bottleneck" value="yes" required><span>Yes, clearly active</span></label>
-                  <label><input type="radio" name="founder_bottleneck" value="somewhat"><span>Somewhat / sometimes</span></label>
-                  <label><input type="radio" name="founder_bottleneck" value="no"><span>No, not really</span></label>
-                </div>
-              </div>
-
-              <div class="quiz-question">
-                <div class="quiz-question-title">4. Financial Fragility</div>
-                <p class="quiz-question-sub">One delayed payment, lost client, or surprise cost would create real instability for the business.</p>
-                <div class="quiz-options">
-                  <label><input type="radio" name="financial_fragility" value="yes" required><span>Yes, clearly active</span></label>
-                  <label><input type="radio" name="financial_fragility" value="somewhat"><span>Somewhat / sometimes</span></label>
-                  <label><input type="radio" name="financial_fragility" value="no"><span>No, not really</span></label>
-                </div>
-              </div>
-
-              <div class="quiz-question">
-                <div class="quiz-question-title">5. Scale Trap</div>
-                <p class="quiz-question-sub">The informal structure that got the project here now creates confusion, drag, or rework as things grow.</p>
-                <div class="quiz-options">
-                  <label><input type="radio" name="scale_trap" value="yes" required><span>Yes, clearly active</span></label>
-                  <label><input type="radio" name="scale_trap" value="somewhat"><span>Somewhat / sometimes</span></label>
-                  <label><input type="radio" name="scale_trap" value="no"><span>No, not really</span></label>
-                </div>
-              </div>
-
-              <div class="quiz-question">
-                <div class="quiz-question-title">6. Wrong-Fit Team</div>
-                <p class="quiz-question-sub">At least one key person is likely in the wrong seat, or the current team shape no longer matches this phase.</p>
-                <div class="quiz-options">
-                  <label><input type="radio" name="wrong_fit_team" value="yes" required><span>Yes, clearly active</span></label>
-                  <label><input type="radio" name="wrong_fit_team" value="somewhat"><span>Somewhat / sometimes</span></label>
-                  <label><input type="radio" name="wrong_fit_team" value="no"><span>No, not really</span></label>
-                </div>
-              </div>
-
-              <div class="quiz-question">
-                <div class="quiz-question-title">7. Conflict Avoidance</div>
-                <p class="quiz-question-sub">The real tensions are mostly handled through silence, side conversations, or slow withdrawal rather than direct resolution.</p>
-                <div class="quiz-options">
-                  <label><input type="radio" name="conflict_avoidance" value="yes" required><span>Yes, clearly active</span></label>
-                  <label><input type="radio" name="conflict_avoidance" value="somewhat"><span>Somewhat / sometimes</span></label>
-                  <label><input type="radio" name="conflict_avoidance" value="no"><span>No, not really</span></label>
-                </div>
-              </div>
-            </div>
-
-            <div class="quiz-meta">
-              <button type="submit" class="btn btn-primary btn-lg" style="width:100%">Show My Result</button>
-              <p>
-                This does not store answers. It gives visitors an immediate read on which structural patterns are most likely active, then points them toward the right next step.
-              </p>
-            </div>
-          </form>
-
-          <div class="quiz-result" id="quiz-result" aria-live="polite">
-            <div class="quiz-result-score" id="quiz-result-score">0 <span>active patterns</span></div>
-            <h3 id="quiz-result-level">Early Warning</h3>
-            <p id="quiz-result-copy">
-              You likely have one visible structural pressure point. Catch it now and you can repair it before it becomes a momentum killer.
-            </p>
-            <ul id="quiz-result-patterns">
-              <li>No clear dominant pattern flagged yet.</li>
-            </ul>
-            <div class="gap-cta">
-              <a href="the-path.html" class="btn btn-blue" id="quiz-result-cta">See the Full Path</a>
-              <a href="apply.html#fit-call" class="btn btn-secondary">Book a Fit Call</a>
-            </div>
-          </div>
-        </div>
-      </div><!-- /right sticky -->
 
     </div><!-- /diag-layout -->
   </div>

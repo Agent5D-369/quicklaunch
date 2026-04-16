@@ -233,6 +233,7 @@
   const resultCopy = document.getElementById('quiz-result-copy');
   const resultPatterns = document.getElementById('quiz-result-patterns');
   const resultCta = document.getElementById('quiz-result-cta');
+  const explainer = document.getElementById('diagnostic-explainer');
 
   if (!result || !resultScore || !resultLevel || !resultCopy || !resultPatterns || !resultCta) return;
 
@@ -289,6 +290,11 @@
       : '<li>No clear dominant pattern flagged yet. If the project still feels shaky, start with the Path to strengthen structure before strain compounds.</li>';
     resultCta.textContent = ctaLabel;
     resultCta.setAttribute('href', ctaHref);
+
+    if (explainer) {
+      explainer.hidden = false;
+      explainer.classList.add('is-revealed');
+    }
 
     result.classList.add('show');
     result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
