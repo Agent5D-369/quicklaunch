@@ -385,13 +385,13 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--font-h); line-height: 1.15; font-weight: 
   .hero-content {
     position: relative;
     z-index: 2;
-    max-width: 600px;
+    max-width: 560px;
   }
   .hero-h1 {
-    font-size: clamp(3.2rem, 4.7vw, 5rem);
+    font-size: clamp(3rem, 4.35vw, 4.6rem);
     line-height: 0.92;
     margin-bottom: var(--sp-4);
-    max-width: 11ch;
+    max-width: 9.6ch;
   }
   .hero-line {
     display: block;
@@ -433,7 +433,7 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--font-h); line-height: 1.15; font-weight: 
     padding-bottom: var(--sp-6);
   }
   .hero-h1 {
-    font-size: clamp(2.75rem, 4vw, 4rem);
+    font-size: clamp(2.55rem, 3.7vw, 3.7rem);
     margin-bottom: var(--sp-3);
   }
   .hero-body {
