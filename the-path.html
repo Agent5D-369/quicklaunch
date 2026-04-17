@@ -238,6 +238,22 @@
     }
     .toc-link:hover { color: var(--white); border-color: var(--border-2); }
     .toc-link.active { background: rgba(10,110,255,0.1); border-color: rgba(10,110,255,0.3); color: var(--blue-2); }
+    @media (max-width: 639px) {
+      .path-hero {
+        padding: 118px 0 var(--sp-16);
+      }
+      .toc-bar {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: var(--sp-2);
+        scrollbar-width: thin;
+      }
+      .toc-link,
+      .toc-bar .btn {
+        flex: 0 0 auto;
+        white-space: nowrap;
+      }
+    }
   </style>
 </head>
 <body>

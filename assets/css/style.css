@@ -307,7 +307,7 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--font-h); line-height: 1.15; font-weight: 
 }
 #mobile-menu.open { display: flex; }
 #mobile-menu a {
-  font-family: var(--font-h); font-size: var(--text-3xl); font-weight: 800;
+  font-family: var(--font-h); font-size: clamp(1.6rem, 6vw, 2.2rem); font-weight: 800;
   color: var(--muted); transition: var(--t-base); text-align: center;
 }
 #mobile-menu a:hover { color: var(--white); }
@@ -1230,7 +1230,7 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--font-h); line-height: 1.15; font-weight: 
   background: rgba(255,255,255,0.02);
 }
 .faq-a-inner p { color: var(--muted); font-size: var(--text-base); line-height: 1.75; }
-.faq-item.open .faq-a { max-height: 500px; }
+.faq-item.open .faq-a { max-height: 1200px; }
 
 /* ── FINAL CTA ──────────────────────────────────────────────── */
 .final-cta-section {
@@ -1483,6 +1483,31 @@ footer {
   }
   .hero-offer-card {
     padding: var(--sp-6);
+  }
+  .gap-cta,
+  .gap-cta-center {
+    flex-direction: column;
+  }
+  .gap-cta .btn,
+  .gap-cta-center .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .cta-option {
+    padding: var(--sp-6);
+  }
+  .final-cta-sub,
+  .cta-option p,
+  .faq-a-inner p {
+    line-height: 1.6;
+  }
+  .footer-bottom {
+    justify-content: center;
+    text-align: center;
+  }
+  #mobile-menu {
+    gap: var(--sp-6);
+    padding: 96px var(--sp-6) var(--sp-8);
   }
   .final-cta-h2 { font-size: var(--text-4xl); }
   .section-h2 { font-size: var(--text-4xl); }
