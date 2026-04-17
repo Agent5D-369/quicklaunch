@@ -10,8 +10,8 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://quicklaunchconsulting.com/assets/images/rick-broider.jpg</image:loc>
-      <image:title>Rick Broider - Startup Consultant & Founder Advisor, QuickLaunch Consulting</image:title>
+      <image:loc>https://quicklaunchconsulting.com/assets/images/landing-fix-structure-01.jpg</image:loc>
+      <image:title>QuickLaunch Consulting - Fix the structure before collapse compounds</image:title>
     </image:image>
     <image:image>
       <image:loc>https://quicklaunchconsulting.com/assets/images/quicklaunch-share-card.png</image:loc>
@@ -33,6 +33,41 @@
     <lastmod>2026-04-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://quicklaunchconsulting.com/startup-consultant.html</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://quicklaunchconsulting.com/founder-advisor.html</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://quicklaunchconsulting.com/mvp-validation-consultant.html</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://quicklaunchconsulting.com/fractional-coo-consultant.html</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://quicklaunchconsulting.com/ai-business-consultant.html</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
 </urlset>

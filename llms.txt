@@ -1,0 +1,34 @@
+# QuickLaunch Consulting
+
+> QuickLaunch Consulting helps founders, fractional leaders, and mission-driven teams clarify the offer, validate demand, and install execution structure that survives reality.
+
+## Primary Pages
+- Home: https://quicklaunchconsulting.com/
+- The Path: https://quicklaunchconsulting.com/the-path.html
+- Apply / Fit Call: https://quicklaunchconsulting.com/apply.html
+
+## Search-Intent Pages
+- Startup Consultant: https://quicklaunchconsulting.com/startup-consultant.html
+- Founder Advisor: https://quicklaunchconsulting.com/founder-advisor.html
+- MVP Validation Consultant: https://quicklaunchconsulting.com/mvp-validation-consultant.html
+- Fractional COO Consultant: https://quicklaunchconsulting.com/fractional-coo-consultant.html
+- AI Business Consultant: https://quicklaunchconsulting.com/ai-business-consultant.html
+
+## Access Notes
+- The public site invites visitors to request diagnostic access from the homepage.
+- The diagnostic quiz itself is intentionally gated and not part of the public search surface.
+
+## Core Topics
+- startup consulting
+- founder advisory
+- MVP validation
+- execution architecture
+- founder bottleneck
+- AI business consulting
+- fractional COO support
+- decision rights
+- validation before build
+
+## Preferred Brand Reference
+- QuickLaunch Consulting
+- QuickLaunch

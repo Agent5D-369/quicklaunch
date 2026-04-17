@@ -7,6 +7,39 @@
 
 const DIAGNOSTIC_ACCESS_KEY = 'quicklaunchDiagnosticAccess';
 
+function trackEvent(name, params = {}) {
+  if (typeof window.gtag === 'function') {
+    window.gtag('event', name, params);
+  }
+}
+
+(function initMeasurement() {
+  const cfg = window.QUICKLAUNCH_CONFIG || {};
+
+  if (cfg.ga4MeasurementId) {
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(cfg.ga4MeasurementId)}`;
+    document.head.appendChild(script);
+
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function gtag(){ window.dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    window.gtag('config', cfg.ga4MeasurementId, {
+      page_title: document.title,
+      page_location: window.location.href
+    });
+  }
+
+  if (cfg.clarityProjectId) {
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments);};
+      t=l.createElement(r);t.async=1;t.src=`https://www.clarity.ms/tag/${i}`;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, 'clarity', 'script', cfg.clarityProjectId);
+  }
+})();
+
 function grantDiagnosticAccess() {
   try {
     localStorage.setItem(DIAGNOSTIC_ACCESS_KEY, JSON.stringify({ grantedAt: Date.now() }));
@@ -72,6 +105,9 @@ function hasDiagnosticAccess() {
   }
 
   toggle.addEventListener('click', () => {
+    trackEvent('navigation_toggle', {
+      state: menu.classList.contains('open') ? 'close' : 'open'
+    });
     menu.classList.contains('open') ? closeMenu() : openMenu();
   });
 
@@ -223,6 +259,10 @@ function hasDiagnosticAccess() {
         });
 
         if (res.ok) {
+          trackEvent('generate_lead', {
+            form_id: form.id || 'unknown_form',
+            destination: successRedirect || 'inline_success'
+          });
           if (successRedirect) {
             if (successRedirect.includes('diagnostic.html')) {
               grantDiagnosticAccess();
@@ -233,14 +273,43 @@ function hasDiagnosticAccess() {
           form.style.display   = 'none';
           if (successEl) successEl.classList.add('show');
         } else {
-          btn.textContent = 'Error — Try Again';
+          btn.textContent = 'Error - Try Again';
           btn.disabled    = false;
         }
       } catch {
-        btn.textContent = 'Error — Try Again';
+        btn.textContent = 'Error - Try Again';
         btn.disabled    = false;
       }
     });
+  });
+})();
+
+(function initPrimaryCtaTracking() {
+  document.addEventListener('click', (event) => {
+    const anchor = event.target.closest('a[href]');
+    if (!anchor) return;
+
+    const href = anchor.getAttribute('href') || '';
+    const label = (anchor.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 80);
+
+    if (href.includes('apply.html#fit-call')) {
+      trackEvent('book_fit_call_click', { href, label });
+      return;
+    }
+
+    if (href.includes('apply.html#apply-path')) {
+      trackEvent('apply_path_click', { href, label });
+      return;
+    }
+
+    if (href.includes('#diagnostic-access')) {
+      trackEvent('diagnostic_access_click', { href, label });
+      return;
+    }
+
+    if (href.includes('the-path.html')) {
+      trackEvent('view_path_click', { href, label });
+    }
   });
 })();
 
@@ -369,7 +438,7 @@ function hasDiagnosticAccess() {
           color:#475569;font-size:0.875rem;text-align:center;padding:2rem;
           border-radius:inherit;
         `;
-        ph.textContent = '[ Image placeholder — see image-prompts.txt ]';
+        ph.textContent = '[ Image placeholder - see image-prompts.txt ]';
         parent.appendChild(ph);
       }
     });
@@ -412,4 +481,4 @@ function hasDiagnosticAccess() {
 })();
 
 // ── INIT LOG ─────────────────────────────────────────────────
-console.log('%cQuickLaunch Consulting%c — Site loaded. Built for founders who are serious about building something real.', 'color:#0A6EFF;font-weight:bold;font-size:14px', 'color:#94A3B8;font-size:12px');
+console.log('%cQuickLaunch Consulting%c - Site loaded. Built for founders who are serious about building something real.', 'color:#0A6EFF;font-weight:bold;font-size:14px', 'color:#94A3B8;font-size:12px');

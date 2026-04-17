@@ -1,12 +1,15 @@
-# QuickLaunch Consulting — robots.txt
+# QuickLaunch Consulting - robots.txt
 # https://quicklaunchconsulting.com
 
 User-agent: *
 Allow: /
 
-# Block any accidental staging or mirror paths
+# Block mirrored or stale asset paths
 Disallow: /mirror/
 Disallow: /assets/images/og-image.jpg
 
-# Sitemap location
+# Discovery files
+# https://quicklaunchconsulting.com/llms.txt
+# https://quicklaunchconsulting.com/humans.txt
+
 Sitemap: https://quicklaunchconsulting.com/sitemap.xml
