@@ -5,6 +5,25 @@
 
 'use strict';
 
+const DIAGNOSTIC_ACCESS_KEY = 'quicklaunchDiagnosticAccess';
+
+function grantDiagnosticAccess() {
+  try {
+    localStorage.setItem(DIAGNOSTIC_ACCESS_KEY, JSON.stringify({ grantedAt: Date.now() }));
+  } catch {}
+}
+
+function hasDiagnosticAccess() {
+  try {
+    const raw = localStorage.getItem(DIAGNOSTIC_ACCESS_KEY);
+    if (!raw) return false;
+    const parsed = JSON.parse(raw);
+    return Boolean(parsed && parsed.grantedAt);
+  } catch {
+    return false;
+  }
+}
+
 // ── SCROLL PROGRESS BAR ──────────────────────────────────────
 (function initProgressBar() {
   const bar = document.getElementById('progress-bar');
@@ -205,6 +224,9 @@
 
         if (res.ok) {
           if (successRedirect) {
+            if (successRedirect.includes('diagnostic.html')) {
+              grantDiagnosticAccess();
+            }
             window.location.href = successRedirect;
             return;
           }
@@ -220,6 +242,13 @@
       }
     });
   });
+})();
+
+(function initDiagnosticAccessGate() {
+  const path = window.location.pathname || '';
+  if (!/diagnostic\.html$/i.test(path)) return;
+  if (hasDiagnosticAccess()) return;
+  window.location.replace('index.html#diagnostic-access');
 })();
 
 // DIAGNOSTIC QUIZ SCORING

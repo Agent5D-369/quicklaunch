@@ -407,6 +407,9 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--font-h); line-height: 1.15; font-weight: 
     margin-bottom: var(--sp-4);
     font-size: 0.82rem;
   }
+  .hero-actions {
+    margin-bottom: var(--sp-4);
+  }
   .hero-stats {
     padding-top: var(--sp-4);
     gap: var(--sp-3);
@@ -457,8 +460,35 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--font-h); line-height: 1.15; font-weight: 
   .hero-proofline {
     margin-bottom: var(--sp-3);
   }
+  .hero-actions {
+    gap: 0.65rem;
+    margin-bottom: var(--sp-3);
+  }
+  .hero-actions .btn {
+    padding: 0.85rem 1.2rem;
+    font-size: 0.88rem;
+  }
+  .hero-stats {
+    display: none;
+  }
+  .hero-secondary-link {
+    margin-top: 0;
+  }
   .hero-offer {
-    max-width: 385px;
+    max-width: 370px;
+  }
+  .hero-offer-card {
+    padding: var(--sp-6);
+  }
+  .hero-offer-title {
+    font-size: clamp(1.6rem, 2.5vw, 2rem);
+    max-width: 11ch;
+  }
+  .hero-offer-body,
+  .hero-offer-points li,
+  .form-disclaimer {
+    font-size: 0.84rem;
+    line-height: 1.5;
   }
 }
 
@@ -499,6 +529,13 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--font-h); line-height: 1.15; font-weight: 
   opacity: 0.88;
   margin-bottom: var(--sp-6);
   max-width: 34rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-5);
 }
 
 .hero-secondary-link {

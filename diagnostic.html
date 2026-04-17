@@ -6,7 +6,7 @@
   <title>Free: 7 Startup Collapse Patterns Diagnostic | QuickLaunch</title>
   <meta name="description" content="Take the 7 Collapse Patterns Diagnostic quiz. Identify the exact structural failure threatening your startup or project right now and see what to do next.">
   <meta name="keywords" content="startup collapse patterns, why startups fail, founder collapse diagnostic, startup structure failure, project collapse prevention, startup failure patterns, why my startup is stalling, business structure diagnostic">
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
   <link rel="canonical" href="https://quicklaunchconsulting.com/diagnostic.html">
   <link rel="sitemap" type="application/xml" href="https://quicklaunchconsulting.com/sitemap.xml">
   <!-- Open Graph -->
@@ -70,6 +70,22 @@
         linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
       background-size: 60px 60px;
       mask-image: radial-gradient(ellipse 100% 80% at 50% 50%, black 0%, transparent 70%);
+    }
+    .diag-hero-visual {
+      width: min(100%, 720px);
+      margin: 0 auto var(--sp-8);
+      border-radius: var(--r-xl);
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow-lg), var(--shadow-glow);
+      background: rgba(255,255,255,0.02);
+    }
+    .diag-hero-visual img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      object-position: center;
     }
     .diag-layout {
       display: flex;
@@ -450,7 +466,13 @@
         failure point threatening your project right now. Five minutes.
         Total clarity. No generic advice - only a precise map of your specific situation.
       </p>
-      <div class="reveal reveal-delay-3">
+      <div class="diag-hero-visual reveal reveal-delay-3">
+        <img
+          src="assets/images/landing-take-diagnostic-01.jpg"
+          alt="Diagnostic interface showing collapse alerts across a glowing system panel."
+          loading="eager">
+      </div>
+      <div class="reveal reveal-delay-4">
         <a href="#quiz" class="btn btn-primary btn-xl">
           Take the Diagnostic
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
