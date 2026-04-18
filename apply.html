@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Startup Consultant Application &amp; Fit Call | QuickLaunch Founder Advisor</title>
-  <meta name="description" content="Apply for QuickLaunch or book a free fit call with a startup consultant and founder advisor. Tell us your situation and get a clear next step within 48 hours.">
+  <meta name="description" content="Apply for the QuickLaunch Path or request a free fit call. Tell us your situation and get a clear recommendation within 48 hours.">
   <meta name="keywords" content="startup consultant application, founder advisor fit call, book startup consultant, startup strategy call, business consultant for founders, free fit call, QuickLaunch">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="https://quicklaunchconsulting.com/apply.html">
@@ -15,22 +15,22 @@
   <meta property="og:site_name" content="QuickLaunch Consulting">
   <meta property="og:url" content="https://quicklaunchconsulting.com/apply.html">
   <meta property="og:title" content="Startup Consultant Application &amp; Fit Call | QuickLaunch Founder Advisor">
-  <meta property="og:description" content="Apply for QuickLaunch or book a free fit call. Startup consulting for founders who need a clear next step, not another vague conversation.">
+  <meta property="og:description" content="Apply for the QuickLaunch Path or request a free fit call. Clear next step, no vague conversation, reply within 48 hours.">
   <meta property="og:image" content="https://quicklaunchconsulting.com/assets/images/quicklaunch-share-card.png">
   <meta property="og:image:alt" content="QuickLaunch Consulting - Book a Free Founder Strategy Call">
   <!-- Twitter / X Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Startup Consultant Application &amp; Fit Call | QuickLaunch Founder Advisor">
-  <meta name="twitter:description" content="Apply for QuickLaunch or book a free fit call. One conversation, no pressure, and a clear next step within 48 hours.">
+  <meta name="twitter:description" content="Apply for the QuickLaunch Path or request a free fit call. One clear next step within 48 hours.">
   <meta name="twitter:image" content="https://quicklaunchconsulting.com/assets/images/quicklaunch-share-card.png">
   <!-- Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Book a Free Founder Strategy Call",
+    "@type": ["ContactPage", "WebPage"],
+    "name": "QuickLaunch Application and Fit Call",
     "url": "https://quicklaunchconsulting.com/apply.html",
-    "description": "Apply for startup consulting or book a free 20-minute strategy call with Rick Broider at QuickLaunch Consulting.",
+    "description": "Apply for the QuickLaunch Path or request a free fit call to determine the best starting point.",
     "isPartOf": {"@type": "WebSite", "url": "https://quicklaunchconsulting.com", "name": "QuickLaunch Consulting"},
     "breadcrumb": {
       "@type": "BreadcrumbList",
@@ -40,11 +40,31 @@
       ]
     },
     "mainEntity": {
-      "@type": "Service",
-      "name": "Free Founder Strategy Call",
-      "provider": {"@type": "Organization", "name": "QuickLaunch Consulting", "url": "https://quicklaunchconsulting.com"},
-      "description": "A free 20-minute strategy call to assess fit, diagnose your primary structural challenge, and determine the right starting point for your consulting engagement.",
-      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "name": "Free Fit Call"}
+      "@type": "ItemList",
+      "name": "QuickLaunch Entry Paths",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "Service",
+            "name": "QuickLaunch Path Application",
+            "provider": {"@type": "Organization", "name": "QuickLaunch Consulting", "url": "https://quicklaunchconsulting.com"},
+            "description": "A short application that identifies fit, urgency, and the most useful starting phase."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "Service",
+            "name": "Free Fit Call",
+            "provider": {"@type": "Organization", "name": "QuickLaunch Consulting", "url": "https://quicklaunchconsulting.com"},
+            "description": "A free fit call to diagnose the primary structural challenge and determine the clearest next step.",
+            "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "name": "Free Fit Call"}
+          }
+        }
+      ]
     }
   }
   </script>
@@ -222,6 +242,19 @@
     .radio-option span {
       display: block;
       line-height: 1.6;
+    }
+    .form-fieldset {
+      border: 0;
+      margin: 0 0 var(--sp-4);
+      padding: 0;
+      min-width: 0;
+    }
+    .form-legend {
+      display: block;
+      font-size: var(--text-sm);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: var(--sp-3);
     }
   </style>
 </head>
@@ -422,7 +455,7 @@
             <form id="apply-form" action="https://formspree.io/f/xgorkraw" method="POST"
                   aria-label="Full path application form">
               <input type="hidden" name="_subject" value="New Path Application - QuickLaunch">
-              <input type="text" name="_gotcha" style="display:none">
+              <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
 
               <!-- Contact info -->
               <div class="form-section-title">
@@ -528,8 +561,8 @@
                 Your Starting Point
               </div>
 
-              <div class="form-field" style="margin-bottom:var(--sp-4)">
-                <label>Where do you think you're starting from?</label>
+              <fieldset class="form-fieldset">
+                <legend class="form-legend">Where do you think you're starting from?</legend>
                 <div class="radio-group">
                   <label class="radio-option">
                     <input type="radio" name="start_phase" value="Phase 1 - Need clarity first">
@@ -548,7 +581,7 @@
                     <span style="font-size:var(--text-sm)">Not sure - let's figure it out on the fit call</span>
                   </label>
                 </div>
-              </div>
+              </fieldset>
 
               <div class="form-field" style="margin-bottom:var(--sp-4)">
                 <label for="apply-source">How did you find us?</label>
@@ -572,14 +605,14 @@
               <button type="submit" class="btn btn-primary btn-xl" style="width:100%">
                 Submit Application →
               </button>
-              <p class="form-disclaimer">We'll respond within 48 hours with a clear recommended next step.</p>
+              <p class="form-disclaimer">Short application. Human review. Clear recommendation within 48 hours.</p>
             </form>
-            <div id="apply-success" class="form-success">
+            <div id="apply-success" class="form-success" role="status" aria-live="polite">
               <strong style="display:block;font-size:var(--text-xl);margin-bottom:var(--sp-3)">✓ Application received.</strong>
-              We'll review your situation and reach out within 48 hours with a clear next step.
-              In the meantime, if you haven't already - get the free
-            <a href="index.html#diagnostic-access" style="color:var(--blue-2)">Collapse Diagnostic</a>
-              to sharpen your understanding of what's at stake.
+              We’ll review your application and reply within 48 hours with the clearest next step.
+              If you have not taken it yet, start with the
+              <a href="index.html#diagnostic-access" style="color:var(--blue-2)">Collapse Diagnostic</a>
+              so the conversation starts with cleaner signal.
             </div>
           </div>
         </div><!-- /tab-full -->
@@ -615,7 +648,7 @@
                   aria-label="Fit call request form">
               <input type="hidden" name="_subject" value="New Fit Call Request - QuickLaunch">
               <input type="hidden" name="inquiry_type" value="Fit Call Request">
-              <input type="text" name="_gotcha" style="display:none">
+              <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
 
               <div class="form-row">
                 <div class="form-field">
@@ -656,11 +689,11 @@
               <button type="submit" class="btn btn-primary btn-xl" style="width:100%">
                 Request My Fit Call →
               </button>
-              <p class="form-disclaimer">We’ll respond within 48 hours with the next step or calendar link.</p>
+              <p class="form-disclaimer">You’ll hear back within 48 hours with the next step or a direct scheduling link.</p>
             </form>
-            <div id="fit-call-success" class="form-success">
+            <div id="fit-call-success" class="form-success" role="status" aria-live="polite">
               <strong style="display:block;font-size:var(--text-xl);margin-bottom:var(--sp-3)">✓ Fit call request received.</strong>
-              We’ll reply within 48 hours. If you want to move faster, you can also grab a time directly here:
+              We’ll reply within 48 hours with the right next step. If you want to move faster, you can also grab a time directly here:
               <a href="https://calendar.app.google/FbiNU9KyUG1qWi4U7" target="_blank" rel="noopener noreferrer" style="color:var(--blue-2)">open Rick’s calendar</a>.
             </div>
 
